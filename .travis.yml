@@ -15,11 +15,11 @@ matrix:
       jdk: oraclejdk7
     - rvm: 2.1.2
       jdk: oraclejdk7
-services:
-  - mysql
-  - rabbitmq
-before_install:
-  - gem update bundler
-  - gem list bundler
+# services:
+#   - mysql
+#   - postgres
+#   - rabbitmq
+#   - redis
+#   - elasticsearch
 before_script:
   - mysql -e 'create database pipeline_test;'
