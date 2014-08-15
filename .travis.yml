@@ -19,5 +19,8 @@ matrix:
 services:
   - mysql
   - rabbitmq
+before_install:
+  - gem update bundler
+  - gem list bundler
 before_script:
   - mysql -e 'create database pipeline_test;'
