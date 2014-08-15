@@ -1,6 +1,8 @@
-# Pipeline
+# Reevoo Pipeline
 
-TODO: Write a gem description
+An agnostic extractor, transformer, and loader library
+
+[![Build Status](https://travis-ci.org/reevoo/pipeline.svg?branch=master)](https://travis-ci.org/reevoo/pipeline)
 
 ## Installation
 

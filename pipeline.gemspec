@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Pipeline::VERSION
   spec.authors       = ["Philip Stevens"]
   spec.email         = ["philip.stevens@reevoo.com"]
-  spec.summary       = %q{An agnostic extractor, transformer, and loader gem}
+  spec.summary       = %q{An agnostic extractor, transformer, and loader library}
   spec.description   = %q{Provides a common interface for creating all three parts to the ETL flow.}
   spec.homepage      = "http://reevoo.github.io/projects/pipeline"
   spec.license       = "MIT"
