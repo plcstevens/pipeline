@@ -1,25 +1,23 @@
 language: ruby
 rvm:
-  - 2.1.2
-  - 2.0.0
-  - 1.9.3
-  - jruby-19mode
+- 2.1.2
+- 2.0.0
+- 1.9.3
+- jruby-19mode
 jdk:
-  - oraclejdk7
-  - openjdk7
+- oraclejdk7
+- openjdk7
 matrix:
   exclude:
-    - rvm: 1.9.3
-      jdk: oraclejdk7
-    - rvm: 2.0.0
-      jdk: oraclejdk7
-    - rvm: 2.1.2
-      jdk: oraclejdk7
-# services:
-#   - mysql
-#   - postgres
-#   - rabbitmq
-#   - redis
-#   - elasticsearch
+  - rvm: 1.9.3
+    jdk: oraclejdk7
+  - rvm: 2.0.0
+    jdk: oraclejdk7
+  - rvm: 2.1.2
+    jdk: oraclejdk7
 before_script:
-  - mysql -e 'create database pipeline_test;'
+- mysql -e 'create database pipeline_test;'
+notifications:
+  hipchat:
+    rooms:
+      secure: TsK/bMZTm/izur4uaaJ0A8vJiY7929vyV2YgmyEMghlc8SxSdARKCubsbarTpc3kBMKexBPds4ve6BeRuC7iofRwKiRVJEqn7XFsOUXfeTiL+OS/f2Q5ydXQkrPpw6ELW84dSA/nrmhezVE7zMZoAy9jPourIAeBTxRynuYy9rw=
