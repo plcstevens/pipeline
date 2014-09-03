@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'pipeline/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'pipeline'
+  spec.name          = 'reevoo-pipeline'
   spec.version       = Pipeline::VERSION
   spec.authors       = ['Reevoo Developers']
   spec.email         = ['developers@reevoo.com']
@@ -24,7 +24,7 @@ DESCRIPTION
   spec.add_development_dependency 'rake', '~> 10.0'
 
   # For tests
-  spec.add_development_dependency 'pry'
+  spec.add_development_dependency 'pry', '~> 0.10'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'simplecov', '~> 0.9'
   spec.add_development_dependency 'rubocop', '~> 0.25'
