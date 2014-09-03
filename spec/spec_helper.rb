@@ -19,4 +19,3 @@ RSpec.configure do |config|
   # Raise errors on any deprecation warnings.
   config.raise_errors_for_deprecations!
 end
-

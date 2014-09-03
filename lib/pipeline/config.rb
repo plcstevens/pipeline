@@ -4,11 +4,12 @@ require 'logger'
 module Pipeline
   class UnknownAttributeError < StandardError; end
 
+  # This defines configuration for the pipeline.
   module Config
-    def self.initialize(params={})
+    def self.initialize(params = {})
       @config = {
         log_level: Logger::INFO,
-        require_paths: [],
+        require_paths: []
       }.merge(params)
     end
 
@@ -29,7 +30,7 @@ module Pipeline
 
     def self.check_attr(attr)
       unless user_config.key?(attr)
-        raise UnknownAttributeError, "#{attr} is not a valid config attribute"
+        fail UnknownAttributeError, "#{attr} is not a valid config attribute"
       end
     end
 

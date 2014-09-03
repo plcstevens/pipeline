@@ -1,14 +1,16 @@
-require 'rspec/core/rake_task'
-
-desc "Run an IRB session with Pipeline pre-loaded"
+desc 'Run an IRB session with Pipeline pre-loaded'
 task :console do
-  exec "irb -I lib -r pipeline"
+  exec 'irb -I lib -r pipeline'
 end
 
-desc "Run the test suite"
-RSpec::Core::RakeTask.new(:spec) do |t|
-  t.pattern = FileList['spec/**/*_spec.rb']
-  t.rspec_opts = %w(--color --format documentation)
-end
+unless %w(production staging integration).include?(ENV['PIPELINE_ENV'])
+  require 'rspec/core/rake_task'
+  desc 'Run the test suite'
+  RSpec::Core::RakeTask.new(:spec)
 
-task :default => :spec
+  require 'rubocop/rake_task'
+  desc 'Run RuboCop on the lib directory'
+  RuboCop::RakeTask.new(:rubocop)
+
+  task default: [:spec, :rubocop]
+end

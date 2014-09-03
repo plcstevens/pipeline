@@ -4,19 +4,21 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'pipeline/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "pipeline"
+  spec.name          = 'pipeline'
   spec.version       = Pipeline::VERSION
-  spec.authors       = ["Philip Stevens"]
-  spec.email         = ["philip.stevens@reevoo.com"]
-  spec.summary       = %q{An agnostic extractor, transformer, and loader library}
-  spec.description   = %q{Provides a common interface for creating all three parts to the ETL flow.}
-  spec.homepage      = "http://reevoo.github.io/projects/pipeline"
-  spec.license       = "MIT"
+  spec.authors       = ['Philip Stevens']
+  spec.email         = ['philip.stevens@reevoo.com']
+  spec.summary       = 'An agnostic extractor, transformer, and loader library'
+  spec.description   = <<-DESCRIPTION
+Provides a common interface for creating all three parts to the ETL flow.
+DESCRIPTION
+  spec.homepage      = 'http://reevoo.github.io/projects/pipeline'
+  spec.license       = 'MIT'
 
-  spec.files         = `git ls-files -z`.split("\x0")
-  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
-  spec.require_paths = ["lib"]
+  spec.files         = `git ls-files -z`.split('\x0')
+  spec.executables   = spec.files.grep('bin') { |f| File.basename(f) }
+  spec.test_files    = spec.files.grep('spec')
+  spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'multi_json', '~> 1.10'
 

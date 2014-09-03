@@ -1,3 +1,6 @@
+# Pipeline is a library that provides a common interface for implementing
+# pipeline (ETL) behaviour. You can register extractors that may use
+# transformations before pushing into specified loaders.
 module Pipeline
   autoload :Extractor,    'pipeline/extractor'
   autoload :Transformer,  'pipeline/transformer'
@@ -6,31 +9,32 @@ module Pipeline
   autoload :Logging,      'pipeline/logging'
   autoload :Version,      'pipeline/version'
 
-  def self.register_extractor(extractor)
-    self.extractors << extractor
+  module_function
+  def register_extractor(extractor)
+    extractors << extractor
   end
 
-  def self.extractors
+  def extractors
     @extractors ||= []
   end
 
-  def self.register_transformers(transformer)
-    self.transformers << transformer
+  def register_transformer(transformer)
+    transformers << transformer
   end
 
-  def self.transformers
+  def transformers
     @transformers ||= []
   end
 
-  def self.register_loader(loader)
-    self.loaders << loader
+  def register_loader(loader)
+    loaders << loader
   end
 
-  def self.loaders
+  def loaders
     @loaders ||= []
   end
 
-  def self.logger
+  def logger
     Pipeline::Logging.logger
   end
 end

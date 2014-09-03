@@ -1,20 +1,16 @@
 module Pipeline
   # Include this module in a class to register it as an transformer.
-  # Transformers are ordered by the loading order, or as specified by
-  # setting the position value to a non-negative integer; where 1 has the
-  # highest priority
   module Transformer
     def self.included(base)
       base.extend(ClassMethods)
       Pipeline.register_transformer(base)
     end
 
+    # Class methods that you should use to construct your own transformer.
     module ClassMethods
       def position(value)
         value = value.to_i
-        if value > 0
-          @position = value
-        end
+        @position = value if value > 0
       end
     end
   end

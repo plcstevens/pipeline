@@ -16,11 +16,8 @@ describe Pipeline::Transformer do
 
   describe 'module inclusion' do
     it 'registers the class as a transformer' do
-      expect(Pipeline).to receive(:register_transformer) do |klass|
-        expect(klass).to eq(simple_transformer)
-      end
-
       simple_transformer
+      expect(Pipeline.transformers.count).to eq(1)
     end
   end
 end
