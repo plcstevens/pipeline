@@ -1,3 +1,4 @@
+
 # Based on: https://github.com/gocardless/hutch/blob/master/lib/hutch/logging.rb
 require 'logger'
 require 'time'
@@ -12,8 +13,6 @@ module Pipeline
       end
     end
 
-    attr_writer :logger
-
     def self.setup_logger(target = $stdout)
       require 'pipeline/config'
       @logger = Logger.new(target)
@@ -25,6 +24,12 @@ module Pipeline
     def self.logger
       @logger || setup_logger
     end
+
+    # rubocop:disable Style/TrivialAccessors
+    def self.logger=(logger)
+      @logger = logger
+    end
+    # rubocop:enable Style/TrivialAccessors
 
     def logger
       Pipeline::Logging.logger

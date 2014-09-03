@@ -7,10 +7,7 @@ module Pipeline
   # This defines configuration for the pipeline.
   module Config
     def self.initialize(params = {})
-      @config = {
-        log_level: Logger::INFO,
-        require_paths: []
-      }.merge(params)
+      @config = { log_level: Logger::INFO }.merge(params)
     end
 
     def self.get(attr)
