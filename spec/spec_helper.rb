@@ -1,7 +1,6 @@
 require 'simplecov'
 SimpleCov.start { add_filter '/spec/' }
 
-require 'pry'
 require 'pipeline'
 require 'logger'
 

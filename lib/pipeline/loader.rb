@@ -8,6 +8,7 @@ module Pipeline
 
     # Class methods that you should use to construct your own loader.
     module ClassMethods
+
     end
   end
 end

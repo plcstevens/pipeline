@@ -8,7 +8,21 @@ module Pipeline
 
     # Class methods that you should use to construct your own extractor.
     module ClassMethods
-      attr_writer :connection, :command, :transformations
+      attr_accessor :connection, :command, :loaders
+
+      def execute
+        if block_given?
+          connection[command].each do |row|
+            yield row
+          end
+        else
+          connection[command].each do |row|
+            loaders.each do |loader|
+              loader.process(row)
+            end
+          end
+        end
+      end
     end
   end
 end
